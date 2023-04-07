@@ -1,17 +1,15 @@
+const dotenv = require('dotenv')
 const express= require('express')
 const path = require('path')
 const session = require('express-session')
 
+if (process.argv[2] == 'x')
+  dotenv.config();
+
 const knex = require('knex')({
     client: 'pg',
-    connection: {
-      host : '127.0.0.1',
-      port : 5432,
-      user : 'postgres',
-      password : 'France98',
-      database : 'sslogs'
-    }
-})
+    connection: process.env.DB_LOGIN 
+});
 
 const app = express()
 
