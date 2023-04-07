@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%=log%></h1>
+    <h5>by <%=session.username%></h5>
+
+    <% data.forEach(function(x){ %>
+        <% const entryLink = `/edit/${session.username}/${log}/${x.post_id}` %>
+        <a href="<%= entryLink %>"><%= x.name %></a>
+        <h6><%= x.created_at %></h6>
+        <p><%= x.text %></p>
+    <% }) %>
+
+    <% const newEntryLink = `/newentry/${session.username}/${log}` %>
+    <a href="<%= newEntryLink %>" >new entry</a>
+
+    <% const userHomeLink = `/users/${session.username}` %>
+    <a href="<%= userHomeLink %>">home</a>
+</body>
+</html>
