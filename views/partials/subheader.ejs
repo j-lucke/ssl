@@ -4,8 +4,8 @@
         <% const homeLink = '/users/' + session.username %>
         <% logs.forEach( function(log) { %>
             <% const logLink = `/users/${session.username}/${log}` %>
-            <li class="navbar-user-list-item"><a href="<%= logLink %>" class="navbar-user-link"><%= log %></a></li>
+            <li class="navbar-user-list-item"><a href="<%= logLink %>" class="link-clickable"><%= log %></a></li>
         <% }) %>
-        <li class="navbar-user-list-item"><button><a href="/newlog" class="navbar-user-link">NEW</a></button></li>
+        <li class="navbar-user-list-item"><button><a style="color:red;" href="/newlog" class="link-clickable">NEW</a></button></li>
     </ul>
 </nav>

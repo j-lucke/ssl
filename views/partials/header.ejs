@@ -3,14 +3,13 @@
     <ul class="navbar-list">
         <% if (session.username) {
             const homeLink = '/users/' + session.username %>
-            <li class="navbar-list-item"><a href="<%= homeLink %>" class="navbar-link">home</a></li>
-            <li class="navbar-list-item"><a href="/logout" class="navbar-link">logout</a></li>
+            <li class="navbar-list-item"><a href="<%= homeLink %>" class="link-clickable">home</a></li>
+            <li class="navbar-list-item"><a href="/logout" class="link-clickable">logout</a></li>
         <% } else { %>
-            <li class="navbar-list-item"><a class="navbar-link" href="/login">login</a></li>
-            <li class="navbar-list-item"><a class="navbar-link" href="/register">register</a></li>
+            <li class="navbar-list-item"><a class="link-clickable" href="/login">login</a></li>
+            <li class="navbar-list-item"><a class="link-clickable" href="/register">register</a></li>
         <% } %>
     </ul>
-    
 </nav>
-<div class="buffer"></div>
+<div class="navbar-buffer"></div>
 

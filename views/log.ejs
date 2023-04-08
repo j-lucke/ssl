@@ -17,16 +17,16 @@
         <%- include('partials/logsubheader'); %>
     </subheader>  
 
-   <div class="log-container">
+   <div class="container">
         <% data.forEach(function(x){ %>
-            <div class="entry-container">
-                <ul class="entry-tagline-container">
+            <div class="container container-entry">
+                <ul class="container container-tagline">
                     <% const entryLink = `/edit/${session.username}/${log}/${x.post_id}` %>
-                    <li><a class="link1"><%= x.name %></a></li>
-                    <li><a class="link3"><%= x.created_at %></a></li>
-                    <li><button><a class="link3" href="<%= entryLink %>">edit</a></button></li>
+                    <li><a style="font-size: 30px;"><%= x.name %></a></li>
+                    <li><a style="font-size:10px;"><%= x.created_at %></a></li>
+                    <li><button><a class="link-clickable" href="<%= entryLink %>">edit</a></button></li>
                 </ul>
-                <p class="entry-text-container"><%= x.text %></p>
+                <p class="container-text"><%= x.text %></p>
             </div>
         <% }) %>
     </div>

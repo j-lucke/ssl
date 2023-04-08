@@ -17,8 +17,8 @@
     </subheader>
 
     <div class="container">
-        <form action="/newlog" method="post">
-            <input class="entry-form-title" type="text" name="log_name" placeholder="name of new log (one word only!)" required>
+        <form class="form-flex" action="/newlog" method="post">
+            <input type="text" name="log_name" placeholder="name of new log (one word only!)" required>
             <input type="submit" value="create">
         </form>
         <h3><%=session.error%></h3>

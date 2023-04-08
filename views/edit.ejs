@@ -17,10 +17,12 @@
     </subheader>
 
     <% const link = `/edit/${session.username}/${log}/${data.post_id}` %>
-    <form class="entry-form" action="<%= link %>" method="post">
-        <input class="entry-form-title" type="text" name="name" value="<%=data.name%>" required>
-        <textarea class="entry-form-textarea" name="text"><%= data.text %></textarea>
-        <input class="post-button" type="submit" value="post">
-    </form>
+    <div class="container">
+        <form class="form-flex" action="<%= link %>" method="post">
+            <input type="text" name="name" value="<%=data.name%>" required>
+            <textarea class="entry-form-textarea" name="text"><%= data.text %></textarea>
+            <input class="post-button" type="submit" value="post">
+        </form>
+    </div>
 </body>
 </html>

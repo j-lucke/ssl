@@ -1,19 +1,16 @@
-li {
-    list-style: none;
-    font-size: 20px;
-}
+ul {padding: 0px;}
+li {list-style: none; font-size: 20px;}
+input {height: 30px; font-size: 20px;}
 
-.buffer {
-    height: 60px;
-}
+a {color: black}
+a:visited {color: black;}
 
-.container {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 400px;
-    
-}
+.button-submit {width: 80px}
+
+.link-clickable {text-decoration: none; color: blue;}
+.link-clickable:visited{color: blue;}
+.link-clickable:hover{text-decoration: underline;}
+
 .navbar {
     display: flex;
     flex-direction: row;
@@ -27,8 +24,11 @@ li {
     border-bottom: 2px  solid black;
     margin: auto;
     padding-bottom: 20px;
-    justify-content: center;
-}
+    justify-content: center;}
+.navbar-title {font-size: 30px; padding-right: 100px;}
+.navbar-list {display: flex; flex-direction: row;}
+.navbar-list-item {list-style: none; padding: 10px; font-size: 15px;}
+.navbar-buffer {height: 60px;}
 
 .navbar-user {
     display: flex;
@@ -36,142 +36,19 @@ li {
     flex-wrap: wrap;
     background-color: white;
     width: 500px;
-    margin: auto;
-    
-}
+    margin: auto; }
+.navbar-user-title {font-size: 30px; padding: 10px; margin: auto;}
+.navbar-user-list {display: flex; flex-direction: row; justify-content: center;}
+.navbar-user-list-item {list-style: none; padding: 10px;}
 
-.navbar-title {
-    font-size: 30px;
-    padding-right: 100px;
-}
+.container {display: flex; flex-direction: column; margin: auto; width: 500px;}
+.container-entry {border: 1px solid grey; border-radius: 5px;}
+.container-tagline {padding: 10px;}
+.container-text {padding: 15px;}
 
-.navbar-user-title {
-    font-size: 30px;
-    padding: 10px;
-    margin: auto;
-}
+.form-flex {display: flex; flex-direction: column;}
+.form-flex * {margin: 5px;}
+.form-flex textarea {height: 300px;}
 
-.navbar-list {
-    display: flex;
-    flex-direction: row;
-}
-
-.navbar-user-list {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.navbar-list-item {
-    list-style: none;
-    padding: 10px;
-    font-size: 15px;
-}
-
-.navbar-user-list-item {
-    list-style: none;
-    padding: 10px;
-    font-size: 20px;
-}
-
-
-
-.navbar-link {
-    text-decoration: none;
-}
-
-.navbar-user-link {
-    text-decoration: none;
-}
-
-.navbar-link:visited {
-    text-decoration: none;
-    color: black;
-}
-
-.navbar-user-link:visited {
-    text-decoration: none;
-    color: black;
-}
-
-.navbar-link:hover {
-    text-decoration: underline;
-}
-
-.navbar-user-link:hover {
-    text-decoration: underline;
-}
-
-.log-container {
-    
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    width: 420px;
-    margin: auto;
-}
-
-.entry-container {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid rgb(95, 93, 93);
-    background-color: white;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.entry-tagline-container {
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-}
-
-.entry-text-container {
-    padding: 15px;
-}
-
-.link1 {
-    font-size: 30px;
-    color: blue;
-}
-
-.link2 {
-    font-size: 20px;
-}
-
-.link3 {
-    font-size: 10px;
-}
-
-.entry-form {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    border: 2px solid black;
-    margin: auto;
-    border-radius: 5px;
-    width: 420px;
-}
-
-.entry-form-title {
-    width: 300px;
-    margin: auto;
-}
-
-.entry-form-textarea {
-    height: 300px;
-}
-
-.post-button {
-    width: 80px;
-}
-
-.form-flex {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-flex * {
-    margin: 10px;
-}
+.show-g {border: 1px solid green;}
+.show-p {border: 1px solid hotpink}

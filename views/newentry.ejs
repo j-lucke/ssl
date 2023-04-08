@@ -17,11 +17,13 @@
     </subheader>
 
     <% const link = `/newentry/${session.username}/${log}` %>
-    <form class="entry-form" action="<%= link %>" method="post">
-        <label>Title of Post</label>
-        <input class="entry-form-title" type="text" name="name" value="un-named">
-        <textarea class="entry-form-textarea" name="entry" required>?</textarea>
-        <input class="post-button" type="submit" value="post">
-    </form>
+    <div class="container">
+        <form class="form-flex" action="<%= link %>" method="post">
+            <label>Title of Post</label>
+            <input class="entry-form-title" type="text" name="name" required>
+            <textarea class="entry-form-textarea" name="entry" required></textarea>
+            <input class="post-button" type="submit" value="post">
+        </form>
+    </div>
 </body>
 </html>
