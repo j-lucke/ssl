@@ -45,6 +45,8 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res, next) => {
     req.session.error = null
+    req.session.username = null
+    req.session.password = null
     res.render('index.ejs', {session: req.session})
 })
 
@@ -64,7 +66,7 @@ app.get('/logout', (req, res, next) => {
     res.redirect('/')
 })
 
-app.get('/users/:username', isLoggedIn, async function(req, res, next){
+app.get('/users/:username', async function(req, res, next){
     logs = await knex.select('logs').from('users').where({username: req.session.username})
         .then( (records) => {
             if (records[0].logs) 
@@ -76,7 +78,7 @@ app.get('/users/:username', isLoggedIn, async function(req, res, next){
     res.render('user.ejs', {session:  req.session, logs: logs})
 })
 
-app.get('/users/:username/:log', isLoggedIn, (req, res, next) => {
+app.get('/users/:username/:log', (req, res, next) => {
     const tableName = req.params.username + '_' + req.params.log
     knex.select('*').from(tableName).orderBy('post_id').then((data) => {
         res.render('log.ejs', {session: req.session, log: req.params.log, data: data})
@@ -156,7 +158,7 @@ app.post('/register', (req, res, next) => {
         })
 })
 
-app.post('/newlog', isLoggedIn, async (req, res, next) => {
+app.post('/newlog', async (req, res, next) => {
     const logName = req.body.log_name.split(' ')[0]
     const data = await knex.select('logs').from('users').where({username: req.session.username}).then()
     let logs
