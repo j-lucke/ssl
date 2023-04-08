@@ -1,0 +1,9 @@
+<nav class="navbar-user">
+    <a class="navbar-user-title"><%= log %></a>
+    <ul class="navbar-user-list">
+        <% const newEntryLink = `/newentry/${session.username}/${log}` %>
+        <li class="navbar-user-list-item">
+            <%= data.name %>
+        </li>
+    </ul>
+</nav>

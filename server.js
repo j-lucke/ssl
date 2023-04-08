@@ -36,6 +36,8 @@ app.use(session({
 
 app.use( express.urlencoded({ extended: false }))
 
+app.use(express.static(path.join(__dirname, 'static')))
+
 app.use((req, res, next) => {
     console.log(`request: ${req.url}`)
     next()
@@ -43,7 +45,7 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res, next) => {
     req.session.error = null
-    res.render('index.ejs', {time: new Date().toISOString()})
+    res.render('index.ejs', {session: req.session})
 })
 
 app.get('/register', (req, res, next) => {
@@ -55,7 +57,7 @@ app.get('/login', (req, res, next) => {
     res.render('login.ejs', {session: req.session})
 })
 
-app.get('logout', (req, res, next) => {
+app.get('/logout', (req, res, next) => {
     req.session.username = null
     req.session.password = null
     req.session.error = null
@@ -63,13 +65,14 @@ app.get('logout', (req, res, next) => {
 })
 
 app.get('/users/:username', isLoggedIn, async function(req, res, next){
-    const logs = await knex.select('logs').from('users').where({username: req.session.username})
+    logs = await knex.select('logs').from('users').where({username: req.session.username})
         .then( (records) => {
             if (records[0].logs) 
                 return records[0].logs.split(' ')
             else
                 return []
         }).then()
+
     res.render('user.ejs', {session:  req.session, logs: logs})
 })
 

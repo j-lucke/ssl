@@ -1,0 +1,11 @@
+<nav class="navbar-user">
+    <a class="navbar-user-title"><%= session.username %></a>
+    <ul class="navbar-user-list">
+        <% const homeLink = '/users/' + session.username %>
+        <% logs.forEach( function(log) { %>
+            <% const logLink = `/users/${session.username}/${log}` %>
+            <li class="navbar-user-list-item"><a href="<%= logLink %>" class="navbar-user-link"><%= log %></a></li>
+        <% }) %>
+        <li class="navbar-user-list-item"><button><a href="/newlog" class="navbar-user-link">NEW</a></button></li>
+    </ul>
+</nav>

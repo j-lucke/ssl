@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <title>SSL</title>
 </head>
 <body>
-    add something foo!
+    <header>
+        <%- include('partials/header'); %>
+    </header>
+
+    <subheader>
+        <%- include('partials/logsubheader'); %>
+    </subheader>
+
     <% const link = `/newentry/${session.username}/${log}` %>
-    <form action="<%= link %>" method="post">
-        <input type="text" name="name" value="un-named">
-        <textarea name="entry" required>?</textarea>
-        <input type="submit" value="post">
+    <form class="entry-form" action="<%= link %>" method="post">
+        <label>Title of Post</label>
+        <input class="entry-form-title" type="text" name="name" value="un-named">
+        <textarea class="entry-form-textarea" name="entry" required>?</textarea>
+        <input class="post-button" type="submit" value="post">
     </form>
 </body>
 </html>

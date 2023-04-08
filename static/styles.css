@@ -1,0 +1,168 @@
+li {
+    list-style: none;
+    font-size: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 400px;
+    
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    background-color: lightgray;
+    width: 500px;
+    align-items: baseline;
+    border: 2px solid black;
+    margin: auto;
+    padding: 20px;
+    justify-content: center;
+}
+
+.navbar-user {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: white;
+    width: 500px;
+    margin: auto;
+    
+}
+
+.navbar-title {
+    font-size: 20px;
+}
+
+.navbar-user-title {
+    font-size: 30px;
+    padding: 10px;
+    margin: auto;
+}
+
+.navbar-list {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-user-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.navbar-list-item {
+    list-style: none;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.navbar-user-list-item {
+    list-style: none;
+    padding: 10px;
+    font-size: 20px;
+}
+
+
+
+.navbar-link {
+    text-decoration: none;
+}
+
+.navbar-user-link {
+    text-decoration: none;
+}
+
+.navbar-link:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar-user-link:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar-link:hover {
+    text-decoration: underline;
+}
+
+.navbar-user-link:hover {
+    text-decoration: underline;
+}
+
+.log-container {
+    
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 420px;
+    margin: auto;
+}
+
+.entry-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(95, 93, 93);
+    background-color: white;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.entry-tagline-container {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.entry-text-container {
+    padding: 15px;
+}
+
+.link1 {
+    font-size: 30px;
+    color: blue;
+}
+
+.link2 {
+    font-size: 20px;
+}
+
+.link3 {
+    font-size: 10px;
+}
+
+.entry-form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 2px solid black;
+    margin: auto;
+    border-radius: 5px;
+    width: 420px;
+}
+
+.entry-form-title {
+    width: 300px;
+    margin: auto;
+}
+
+.entry-form-textarea {
+    height: 300px;
+}
+
+.post-button {
+    width: 80px;
+}
+
+.form-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-flex * {
+    margin: 10px;
+}

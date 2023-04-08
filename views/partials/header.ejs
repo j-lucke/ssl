@@ -1,0 +1,14 @@
+<nav class="navbar">
+    <a class="navbar-title">Super Simple Logs</a>
+    <ul class="navbar-list">
+        <% if (session.username) {
+            const homeLink = '/users/' + session.username %>
+            <li class="navbar-list-item"><a href="<%= homeLink %>" class="navbar-link">home</a></li>
+            <li class="navbar-list-item"><a href="/logout" class="navbar-link">logout</a></li>
+        <% } else { %>
+            <li class="navbar-list-item"><a class="navbar-link" href="/login">login</a></li>
+            <li class="navbar-list-item"><a class="navbar-link" href="/register">register</a></li>
+        <% } %>
+    </ul>
+</nav>
+
