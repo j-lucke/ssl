@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles.css">
-    <title>Document</title>
+    <title>SSL</title>
 </head>
 <body>
 
@@ -21,10 +21,12 @@
         <% data.forEach(function(x){ %>
             <div class="container container-entry">
                 <ul class="container container-tagline">
-                    <% const entryLink = `/edit/${session.username}/${log}/${x.post_id}` %>
+                    <% const editLink = `/edit/${session.username}/${log}/${x.post_id}` %>
+                    <% const deleteLink = `/deletepost/${session.username}/${log}/${x.post_id}` %>
                     <li><a style="font-size: 30px;"><%= x.name %></a></li>
                     <li><a style="font-size:10px;"><%= x.created_at %></a></li>
-                    <li><button><a class="link-clickable" href="<%= entryLink %>">edit</a></button></li>
+                    <li><button><a class="link-clickable" href="<%= editLink %>">edit</a></button></li>
+                    <li><button><a class="link-clickable" href="<%= deleteLink %>">delete</a></button></li>
                 </ul>
                 <p class="container-text"><%= x.text %></p>
             </div>

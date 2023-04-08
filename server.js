@@ -103,6 +103,12 @@ app.get('/edit/:username/:log/:post_id', (req, res, next) => {
     
 })
 
+app.get('/deletepost/:username/:log/:post_id', (req, res, next) => {
+    const tableName = req.params.username + '_' + req.params.log
+    knex(tableName).where({post_id: req.params.post_id}).del()
+        .then(res.redirect(`/users/${req.params.username}/${req.params.log}`))
+})
+
 app.post('/edit/:username/:log/:post_id', (req, res, next) => {
     const tableName = req.params.username + '_' + req.params.log
     knex(tableName).update({name: req.body.name, text: req.body.text}).where({post_id: req.params.post_id})
