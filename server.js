@@ -80,10 +80,11 @@ app.get('/users/:username', async function(req, res, next){
 
 app.get('/users/:username/:log', (req, res, next) => {
     const tableName = req.params.username + '_' + req.params.log
-    knex.select('*').from(tableName).orderBy('post_id').then((data) => {
+    
+    knex.select('*').from(tableName).orderBy('post_id')
+        .then((data) => {
         res.render('log.ejs', {session: req.session, log: req.params.log, data: data})
     })
-    
 })
 
 app.get('/newlog', (req, res, next) => {
@@ -107,6 +108,32 @@ app.get('/deletepost/:username/:log/:post_id', (req, res, next) => {
     const tableName = req.params.username + '_' + req.params.log
     knex(tableName).where({post_id: req.params.post_id}).del()
         .then(res.redirect(`/users/${req.params.username}/${req.params.log}`))
+})
+
+app.get('/deletelog', (req, res, next) => {
+    knex.select('logs').from('users').where({username: req.session.username})
+        .then(res.render('deletelog.ejs', {session: req.session, logs: logs}))
+})
+
+app.post('/deletelog', async (req, res, next) => {
+    const tableName = req.session.username + '_' + req.body.log
+    knex.schema.dropTable(tableName).then(display)
+    knex.select('logs').from('users').where({username: req.session.username}).then( data => {
+        console.log(data)
+        const logStr = data[0].logs
+        const logs =  logStr.split(' ')
+        console.log(logs)
+        console.log(req.body.log)
+        const index = logs.indexOf(req.body.log)
+        console.log(index)
+        if (index != -1)
+            logs.splice(index, 1)
+        const newStr = logs.join(' ')
+        return newStr
+    }).then( str => {
+        knex('users').update({logs: str}).where({username: req.session.username})
+         .then(res.redirect('/users/' + req.session.username))
+    })
 })
 
 app.post('/edit/:username/:log/:post_id', (req, res, next) => {
